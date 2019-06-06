@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 void RaisedToPower(double& num1, double& num2) {
