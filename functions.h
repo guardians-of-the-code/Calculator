@@ -21,7 +21,7 @@ void calc(float num1, float num2, char operation)
 }
 
 
-bool errcheck(int num1, char op)
+bool numcheck(int num1)
 {
 	//May need to add an additional checker for bad data. Not sure though because everything is either integer or character?
 	if (num1>1000)
@@ -30,7 +30,14 @@ bool errcheck(int num1, char op)
 		return true;
 
 	}
-	if(op!='+'&&op!='-'&&op!='*'&&op!='/'&&op!='^')
+
+	return false;
+
+}
+bool charcheck(char op)
+{
+
+	if (op != '+'&&op != '-'&&op != '*'&&op != '/'&&op != '^')
 	{
 		cout << "Please try again. The operation needs to be valid." << endl;
 		return true;

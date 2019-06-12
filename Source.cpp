@@ -1,23 +1,77 @@
 #include <iostream>
+#include <vector>
 #include "functions.h"
+#include <string>
+#include <sstream>
 using namespace std;
-bool errcheck(int,char);
+
 
 
 int main()
 {
-	bool error=false;
-	double num1, num2;
+	bool errnum=false;
+	bool errchar = false;
+	vector<double> nums;// Declare vector
+	double temp;
 	char operation;
+	string str;		
+	stringstream ss; // Declare stringstream, like a cin stream but for a string.
+
 	do // Loops for input until error // NEED TO CHECK!
 	{
-		error=false;
+		nums.clear();// empties vector in case of error.
+		errnum = false;
+		errchar = false;
 		cout << "Enter math statement." << endl;
-		while(cin>>num1||!cin) // continues to get number and operations until end of stream
+		getline(cin, str);// put line string into str
+		ss << str;// put the string into a stream.
+		while (!ss.eof())
 		{
-			cin >> operation;
-			error=errcheck(num1,operation);
+			ss >> temp;
+			if (!ss)
+			{
+				errnum = true;
+				cout << "Error with the number input. Please retry." << endl;
+				ss.ignore(100, '\n');
+				ss.clear();
+				break;
+			}
+			errnum = numcheck(temp);
+			if (errnum == true)
+			{
+				ss.ignore(100, '\n');
+				ss.clear();
+;
+				break;
+			}
+			nums.push_back(temp); // Adds number to vector.
+
+			ss >> operation;
+			if (!ss.eof())// If its eof, it will pick up error flags hence the if.
+			{
+				if (!ss)// checking for input error
+				{
+					errchar = true;
+					cout << "Error with operation. Please retry." << endl;
+					
+					ss.ignore(100, '\n');
+					ss.clear();
+					break;
+				}
+
+				errchar = charcheck(operation);
+				if (errchar == true)
+				{
+					
+					ss.ignore(100, '\n');
+					ss.clear();
+					break;
+				}
+			}
 		}
-	}while(error);
-	calc(num1, num2, operation);
+
+
+
+	}while(errnum==true||errchar==true);
+	calc(nums.at(0), nums.at(1), operation);
 }
