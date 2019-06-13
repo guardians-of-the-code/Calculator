@@ -3,13 +3,16 @@
 #include <sstream>
 #include <vector>
 using namespace std;
-/*class
+/*class CalcClass
 {
 public:
 
 TODO FOR OBJECT ORIENTED
-
+getin(nums,op);
+calc(nums.at(0), nums.at(1), op.at(0));
 private:
+vector<double> nums;// Declare vector
+vector <char> op;
 
 };
 */
