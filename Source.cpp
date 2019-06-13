@@ -34,14 +34,13 @@ int main()
 				cout << "Error with the number input. Please retry." << endl;
 				ss.ignore(100, '\n');
 				ss.clear();
-				break;
+				break;// Break out of while loop, stays in do while
 			}
 			errnum = numcheck(temp);
 			if (errnum == true)
 			{
 				ss.ignore(100, '\n');
 				ss.clear();
-;
 				break;
 			}
 			nums.push_back(temp); // Adds number to vector.
@@ -54,24 +53,20 @@ int main()
 					errchar = true;
 					cout << "Error with operation. Please retry." << endl;
 					
-					ss.ignore(100, '\n');
-					ss.clear();
+					ss.ignore(100, '\n');// Clearing stream
+					ss.clear();// Clearing error
 					break;
 				}
 
 				errchar = charcheck(operation);
 				if (errchar == true)
 				{
-					
-					ss.ignore(100, '\n');
-					ss.clear();
+					ss.ignore(100, '\n');// Clearing stream
+					ss.clear();//Clearing error
 					break;
 				}
 			}
 		}
-
-
-
 	}while(errnum==true||errchar==true);
 	calc(nums.at(0), nums.at(1), operation);
 }
