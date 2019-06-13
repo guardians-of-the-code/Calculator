@@ -10,5 +10,27 @@ int main()
 	cin >> num1;
 	cin >> operation;
 	cin >> num2;
-	calc(num1, num2, operation);
+
+	if (operation == '+')
+		{
+			cout << num1 + num2 << endl;
+		}
+		else if (operation == '-')
+		{
+			cout << num1 - num2 << endl;
+		}
+		else if (operation == '*')
+		{
+			cout << num1 * num2 << endl;
+		}
+		else if (operation == '/')
+		{
+			cout << num1 / num2 << endl;
+		}
+		else if (operation == '^')
+		{
+			RaisedToPower(num1, num2);
+		}
+
 }
+
