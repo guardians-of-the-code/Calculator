@@ -3,19 +3,17 @@
 #include <sstream>
 #include <vector>
 using namespace std;
-/*class CalcClass
+class CalcClass
 {
 public:
 
-TODO FOR OBJECT ORIENTED
-getin(nums,op);
-calc(nums.at(0), nums.at(1), op.at(0));
-private:
-vector<double> nums;// Declare vector
-vector <char> op;
 
-};
-*/
+
+//TODO FOR OBJECT ORIENTED
+
+
+
+
 void calc(float num1, float num2, char operation)
 {
 	if (operation == '+')
@@ -74,6 +72,7 @@ void getin(vector <double> &nums,vector <char>& operation)
 	do // Loops for input until error
 	{
 		nums.clear();// empties vector in case of error.
+		operation.clear();
 		errnum = false;
 		errchar = false;
 		cout << "Enter math statement." << endl;
@@ -125,3 +124,4 @@ void getin(vector <double> &nums,vector <char>& operation)
 		}
 	} while (errnum == true || errchar == true);
 }
+};
