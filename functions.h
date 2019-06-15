@@ -8,8 +8,6 @@ class CalcClass
 {
 public:
 
-
-
 	//TODO FOR OBJECT ORIENTED
 
 
