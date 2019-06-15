@@ -124,4 +124,8 @@ void getin(vector <double> &nums,vector <char>& operation)
 		}
 	} while (errnum == true || errchar == true);
 }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 038d9793c524b98a33d934a912df333b2c0f9e16
