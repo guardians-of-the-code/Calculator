@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <string>
 #include <sstream>
 #include <vector>
@@ -129,3 +130,16 @@ void getin(vector <double> &nums,vector <char>& operation)
 =======
 };
 >>>>>>> 038d9793c524b98a33d934a912df333b2c0f9e16
+=======
+#include <cmath>
+using namespace std;
+
+void RaisedToPower(double& num1, double& num2) {
+	double newNum = 1;
+	for(int i = 0; i < num2; ++i){
+		newNum *= num1;
+	}
+
+	cout << newNum << endl;
+}
+>>>>>>> master
