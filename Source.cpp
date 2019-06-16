@@ -30,8 +30,7 @@ int main()
 		cin.get(userInput);
 		nums.clear();
 		op.clear();
-		cout << "Press the Enter key to continue, press Q or q to quit..." << endl;
-		cin.get(userInput);
+		
 
 	}
 }
