@@ -12,10 +12,8 @@ int main()
 {
 	CalcClass calc;
 	char userInput = 'a';
-
 	while (userInput != 'q' && userInput != 'Q')
 	{
-
 		calc.getin(nums, op);
 		while (nums.size() >= 2)
 		{														
@@ -31,6 +29,4 @@ int main()
 		nums.clear();
 		op.clear();
 	}
-
-
 }
