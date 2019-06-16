@@ -9,7 +9,6 @@ vector<double> nums;// Declare vector
 vector <char> op;
 double solved;
 int main()
-
 {
 	CalcClass calc;
 	char userInput = 'a';
