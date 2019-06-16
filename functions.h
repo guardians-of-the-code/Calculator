@@ -11,38 +11,38 @@ public:
 	//TODO FOR OBJECT ORIENTED
 
 
-	void RaisedToPower(double& num1, double& num2)
+	double RaisedToPower(double num1, double num2)
 	{
 		double newNum = 1;
 		for (int i = 0; i < num2; ++i)
 		{
 			newNum *= num1;
 		}
-		cout << newNum << endl;
+		return newNum;
 	}
 
-	void calc(double num1, double num2, char operation)
+	double calc(double num1, double num2, char operation)
 	{
 
 		if (operation == '+')
 		{
-			cout << num1 + num2 << endl;
+			return num1 + num2;
 		}
 		else if (operation == '-')
 		{
-			cout << num1 - num2 << endl;
+			return num1 - num2;
 		}
 		else if (operation == '*')
 		{
-			cout << num1 * num2 << endl;
+			return num1 * num2;
 		}
 		else if (operation == '/')
 		{
-			cout << num1 / num2 << endl;
+			return num1 / num2;
 		}
 		else if (operation == '^')
 		{
-			RaisedToPower(num1, num2);
+			return RaisedToPower(num1, num2);
 		}
 
 	}
