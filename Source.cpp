@@ -13,7 +13,6 @@ int main()
 	vector<double> nums;// Declare vector
 	vector <char> op;
 	char userInput = 'a';
-
 	while (userInput != 'q' && userInput != 'Q')
 	{
 		calc.getin(nums, op);
@@ -30,7 +29,5 @@ int main()
 		cin.get(userInput);
 		nums.clear();
 		op.clear();
-		
-
 	}
 }
