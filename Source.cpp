@@ -5,11 +5,11 @@
 
 using namespace std;
 
-vector<double> nums;// Declare vector
-vector <char> op;
-double solved;
 int main()
 {
+	vector<double> nums;// Declare vector
+	vector <char> op;
+	double solved;
 	CalcClass calc;
 	char userInput = 'a';
 	while (userInput != 'q' && userInput != 'Q')
