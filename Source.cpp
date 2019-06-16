@@ -4,11 +4,11 @@
 #include "functions.h"
 using namespace std;
 
-vector<double> nums;// Declare vector
-vector <char> op;
-double solved;
 int main()
 {
+	vector<double> nums;// Declare vector
+	vector <char> op;
+	double solved;
 	CalcClass calc;
 	vector<double> nums;// Declare vector
 	vector <char> op;
