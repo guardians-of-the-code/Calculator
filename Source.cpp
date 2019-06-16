@@ -22,7 +22,6 @@ int main()
 			nums.erase(nums.begin());// Deletes first number
 			nums.at(0)=solved; //places first number with the solution of both numbers
 			op.erase(op.begin());// Deletes first operation character meaning next operation is now first operation
-			
 		}
 		cout << solved << " is the solution." << endl;
 		cout << "Press the Enter key to continue, press Q or q to quit..." << endl;
