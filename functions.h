@@ -7,7 +7,8 @@ using namespace std;
 class CalcClass
 {
 public:
-
+	vector<double> nums;// Declare vector
+	vector <char> op;
 	//TODO FOR OBJECT ORIENTED
 
 
@@ -85,6 +86,8 @@ public:
 
 		do // Loops for input until error
 		{
+			ss.ignore(100, '\n');
+			ss.clear();
 			nums.clear();// empties vector in case of error.
 			operation.clear();
 			errnum = false;
