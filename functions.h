@@ -3,6 +3,7 @@
 #include <sstream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 using namespace std;
 class CalcClass
 {
@@ -74,14 +75,14 @@ public:
 		return false;
 
 	}
-	void getin(vector <double> &nums, vector <char>& operation)
+	bool getin(vector <double> &nums, vector <char>& operation,string & input)
 	{
 		bool errnum = false;
 		bool errchar = false;
 
 		double temp;
 		char chartemp;
-		string str;
+
 		stringstream ss; // Declare stringstream, like a cin stream but for a string.
 
 		do // Loops for input until error
@@ -92,9 +93,7 @@ public:
 			operation.clear();
 			errnum = false;
 			errchar = false;
-			cout << "Enter math statement." << endl;
-			getline(cin, str);// put line string into str
-			ss << str;// put the string into a stream.
+			ss << input;// put the string into a stream.
 			while (!ss.eof()) //Loop until eof.
 			{
 				ss >> temp;
@@ -104,14 +103,14 @@ public:
 					cout << "Error with the number input. Please retry." << endl;
 					ss.ignore(100, '\n');
 					ss.clear();
-					break;// Break out of while loop, stays in do while
+					return false;
 				}
 				errnum = numcheck(temp);
 				if (errnum == true)
 				{
 					ss.ignore(100, '\n');
 					ss.clear();
-					break;
+					return false;
 				}
 				nums.push_back(temp); // Adds number to vector.
 
@@ -126,7 +125,7 @@ public:
 
 						ss.ignore(100, '\n');// Clearing stream
 						ss.clear();// Clearing error
-						break;
+						return false;
 					}
 
 					errchar = charcheck(chartemp);
@@ -134,14 +133,42 @@ public:
 					{
 						ss.ignore(100, '\n');// Clearing stream
 						ss.clear();//Clearing error
-						break;
+						return false;
 					}
 					operation.push_back(chartemp);// Dont need else because if has a break in it
 				}
 			}
 		} while (errnum == true || errchar == true);
+		return true;
 	}
-
+	double solving(CalcClass calc)
+	{
+		double solved;
+		while (calc.nums.size() >= 2)
+		{
+			int loc;// Location of index of operator
+			vector<char>::iterator it;
+			if (find(calc.op.begin(), calc.op.end(), '*') != calc.op.end())
+			{
+				it = find(calc.op.begin(), calc.op.end(), '*');// Looking for multiplicator or division.
+				loc = distance(calc.op.begin(), it);
+			}
+			else if (find(calc.op.begin(), calc.op.end(), '/') != calc.op.end())
+			{
+				it = find(calc.op.begin(), calc.op.end(), '/');// Looking for multiplicator or division.
+				loc = distance(calc.op.begin(), it);
+			}
+			else
+			{
+				loc = 0;
+			}
+			solved = calc.calc(calc.nums.at(loc), calc.nums.at(loc + 1), calc.op.at(loc));//  takes number 1 number 2 and an operator and returns a solution
+			calc.nums.erase(calc.nums.begin() + loc);// Deletes first number
+			calc.nums.at(loc) = solved; //places solution in place of second number
+			calc.op.erase(calc.op.begin() + loc);// Deletes first operation character meaning next operation is now first operation
+		}
+		return solved;
+	}
 };
 
 
