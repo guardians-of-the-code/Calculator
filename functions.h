@@ -5,11 +5,15 @@
 #include <cmath>
 #include <algorithm>
 using namespace std;
+struct equation
+{
+	vector<double> nums;// Declare vector
+	vector <char> op;
+};
 class CalcClass
 {
 public:
-	vector<double> nums;// Declare vector
-	vector <char> op;
+
 	//TODO FOR OBJECT ORIENTED
 
 
@@ -75,8 +79,9 @@ public:
 		return false;
 
 	}
-	bool getin(vector <double> &nums, vector <char>& operation,string & input)
+	bool getin(vector <double> &nums, vector <char>& operation, string::iterator beg, string::iterator end)
 	{
+		// Hoping to pass iterators to only take parts of the string instead of the whole string. Cannot use sstream. Maybe just check it character by character and add it to the vector accordingly. Can check next character to determine whether its a number/operator/ continuing/ended.
 		bool errnum = false;
 		bool errchar = false;
 
@@ -141,21 +146,28 @@ public:
 		} while (errnum == true || errchar == true);
 		return true;
 	}
-	double solving(CalcClass calc)
+	double solving(string& line,string::iterator beg, string::iterator end)
 	{
 		double solved;
-		while (calc.nums.size() >= 2)
+		while ((distance(beg, end) >= 2)
 		{
 			int loc;// Location of index of operator
 			vector<char>::iterator it;
-			if (find(calc.op.begin(), calc.op.end(), '*') != calc.op.end())
+			// Parentheses -> Exponenets ->Mult/Division -> Add/Subtract
+			if (find(beg,end, '(') != end)
 			{
-				it = find(calc.op.begin(), calc.op.end(), '*');// Looking for multiplicator or division.
+				solving(equation, find(begC, endC, '(')++, find(begC, endC, ')')--;)
+
+			}
+			success = calc.getin(equation.nums, equation.op, line);
+			else if (find(calc.op.begin(), calc.op.end(), '*') != calc.op.end())
+			{
+				it = find(calc.op.begin(), calc.op.end(), '*');// Looking for multiplicator
 				loc = distance(calc.op.begin(), it);
 			}
 			else if (find(calc.op.begin(), calc.op.end(), '/') != calc.op.end())
 			{
-				it = find(calc.op.begin(), calc.op.end(), '/');// Looking for multiplicator or division.
+				it = find(calc.op.begin(), calc.op.end(), '/');// Looking for division.
 				loc = distance(calc.op.begin(), it);
 			}
 			else

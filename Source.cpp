@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+	equation equation;
 	double solved;
 	CalcClass calc;
 	bool success;
@@ -15,10 +16,10 @@ int main()
 	getline(cin, userInput);
 	while (userInput != "q" && userInput != "Q")
 	{
-		success= calc.getin(calc.nums, calc.op, userInput);
+		success= calc.getin(equation.nums, equation.op, userInput);
 		if (success)
 		{
-			solved = calc.solving(calc);
+			solved = calc.solving(userInput,userInput.begin(), userInput.end());
 			cout << solved << " is the solution." << endl;
 		}
 		cout << "Press enter a mathematical equation or press Q or q to quit..." << endl;
