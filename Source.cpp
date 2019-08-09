@@ -7,25 +7,29 @@ using namespace std;
 
 int main()
 {
-	equation equation;
+	eq str;
 	double solved;
 	CalcClass calc;
-	bool success;
+	bool success=false;
 	string userInput = "a";
 	cout << "Please enter a mathematical equation or enter Q to quit." << endl;
 	getline(cin, userInput);
+
+
+
 	while (userInput != "q" && userInput != "Q")
 	{
-		success= calc.getin(equation.nums, equation.op, userInput);
+		success = calc.getin(userInput, str);//ERROR CHECK
 		if (success)
 		{
-			solved = calc.solving(userInput,userInput.begin(), userInput.end());
+			cout << "Success" << endl;
+			solved = calc.solving(userInput);
+			cout << "Success" << endl;
 			cout << solved << " is the solution." << endl;
 		}
 		cout << "Press enter a mathematical equation or press Q or q to quit..." << endl;
 		getline(cin, userInput);
-		calc.nums.clear();
-		calc.op.clear();
+
 		
 	}
 }
