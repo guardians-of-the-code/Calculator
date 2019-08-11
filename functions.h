@@ -147,28 +147,21 @@ public:
 	double solving(string& line)
 	{
 		bool success = true;
-		string buffer;
+
 		double solved=2;
 		eq calc;
-		success = getin(line, calc);// Issue here. Bad design.
+		success = getin(line, calc);
+		if (success == false)
+		{
+			return -999999999;
+		}
 		do
 		{
-			int first;
-			int sec;
+			
 			int loc;// Location of index of operator
 			vector<char>::iterator it;
 			// Parentheses -> Exponenets ->Mult/Division -> Add/Subtract
-			if (line.find('(')!=line.npos)
-			{
-				//use pair here?
-				first = line.find_last_of('(') + 1;// Starts after first parenthesis
-				sec = line.find_first_of(')') - 1;// Ends before ending paranthesis
-				buffer = line.substr(first, sec - first);// buffer is a string of the inside
-				solved = solving(buffer);// returns solution of inside
-				loc = buffer.size() - 1;
-				line.replace(first - 1, sec + 1 - first, to_string(solved));
-
-			}
+			
 			if (find(calc.op.begin(), calc.op.end(), '*') != calc.op.end())
 			{
 				it = find(calc.op.begin(), calc.op.end(), '*');// Looking for multiplicator
